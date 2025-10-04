@@ -3,13 +3,6 @@ FROM mcr.microsoft.com/devcontainers/base:bookworm
 
 # https://github.com/crops/yocto-dockerfiles/blob/master/dockerfiles/debian/debian-12/debian-12-base/Dockerfile
 
-# debian-12-base
-# Copyright (C) 2015-2021 Intel Corporation
-#
-# SPDX-License-Identifier: GPL-2.0-only
-#
-
-
 RUN apt-get clean && \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \

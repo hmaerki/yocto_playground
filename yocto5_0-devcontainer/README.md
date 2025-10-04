@@ -14,10 +14,15 @@ Downsides
 
 ## Links
 
-https://github.com/crops/poky-container
+* https://github.com/crops/yocto-dockerfiles
+* https://github.com/crops/poky-container
 
-## Within container
+## KAS
 
-source sources/poky/oe-init-build-env build
+* https://kas.readthedocs.io/en/latest
 
-bitbake core-image-minimal
+Install kas-4.8.2
+
+```bash
+python3 -m pip install kas --break-system-packages
+```
