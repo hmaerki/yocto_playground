@@ -1,4 +1,3 @@
-# source sources/poky/oe-init-build-env build
-source sources/poky/oe-init-build-env build-qemu-arm64
+source sources/poky/oe-init-build-env build
 
 time bitbake core-image-minimal
