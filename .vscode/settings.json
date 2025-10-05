@@ -2,5 +2,16 @@
     "files.associations": {
         "*.conf": "bitbake",
         "*.inc": "bitbake"
-    }
+    },
+    "python.autoComplete.extraPaths": [
+        "${workspaceFolder}/sources/poky/bitbake/lib",
+        "${workspaceFolder}/sources/poky/meta/lib"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/maerki/.vscode/extensions/wmerkens.vscode-circuitpython-v2-0.3.3/boards/0x2886/0x0045",
+        "/home/maerki/.vscode/extensions/wmerkens.vscode-circuitpython-v2-0.3.3/stubs",
+        "/home/maerki/.config/Code/User/globalStorage/wmerkens.vscode-circuitpython-v2/bundle/20250711/adafruit-circuitpython-bundle-py-20250711/lib",
+        "${workspaceFolder}/sources/poky/bitbake/lib",
+        "${workspaceFolder}/sources/poky/meta/lib"
+    ]
 }
