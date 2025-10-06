@@ -3,10 +3,14 @@
 ## Links
 
 * https://docs.yoctoproject.org/dev-manual/qemu.html
+* https://docs.yoctoproject.org/dev/dev-manual/qemu.html#runqemu-command-line-options
+* https://wiki.qemu.org/Documentation/Networking (SLIRP)
 
 
 ```bash
-sources/poky/scripts/runqemu --help
+source sources/poky/oe-init-build-env build
+
+runqemu --help
 
 Usage: you can run this script with any valid combination
 of the following environment variables (in any order):
@@ -63,23 +67,28 @@ Examples:
 To exit QEMU enter Control-a followed by x
 ```
 
+Optional parameter: `./build/tmp/deploy/images/qemux86-64/core-image-minimal-qemux86-64.rootfs.qemuboot.conf`
+
+
+This command makes qemu stop in the boot process as qemu wants to connect to the graphical device.
+We get a chance to see the output of qemu and here we see the port assignements.
+
+```bash
+runqemu slirp
+
+runqemu - INFO - Network configuration: ip=dhcp
+runqemu - INFO - Port forward: hostfwd=tcp:127.0.0.1:2222-:22 hostfwd=tcp:127.0.0.1:2323-:23
+runqemu - INFO - Running /workspaces/yocto_playground/yocto5_0-devcontainer/build/tmp/work/x86_64-linux/qemu-helper-native/1.0/recipe-sysroot-native/usr/bin/qemu-system-x86_64 -device virtio-net-pci,netdev=net0,mac=52:54:00:12:35:02 -netdev user,id=net0,hostfwd=tcp:127.0.0.1:2222-:22,hostfwd=tcp:127.0.0.1:2323-:23,tftp=/workspaces/yocto_playground/yocto5_0-devcontainer/build/tmp/deploy/images/qemux86-64 -object rng-random,filename=/dev/urandom,id=rng0 -device virtio-rng-pci,rng=rng0 -drive file=/workspaces/yocto_playground/yocto5_0-devcontainer/build/tmp/deploy/images/qemux86-64/core-image-minimal-qemux86-64.rootfs-20251006075145.ext4,if=virtio,format=raw -usb -device usb-tablet -usb -device usb-kbd   -cpu IvyBridge -machine q35,i8042=off -smp 4 -m 256 -serial mon:vc -serial null -display none  -kernel /workspaces/yocto_playground/yocto5_0-devcontainer/build/tmp/deploy/images/qemux86-64/bzImage -append 'root=/dev/vda rw  ip=dhcp oprofile.timer=1 tsc=reliable no_timer_check rcupdate.rcu_expedited=1 swiotlb=0 '
+
+==> Now qemu hangs, it should be started with 'nographics'
+```
+
 ```bash
 source sources/poky/oe-init-build-env build
 
-runqemu qemux86-64 nographic
+runqemu slirp nographic
 
-runqemu - INFO - Running MACHINE=qemux86-64 bitbake -e  ...
-runqemu - ERROR - TUN control device /dev/net/tun is unavailable; you may need to enable TUN (e.g. sudo modprobe tun)
-runqemu - INFO - Cleaning up
-runqemu - INFO - Host uptime: 22851.12
-
-
-runqemu qemux86-64 core-image-minimal ext4
-
-runqemu - INFO - Running MACHINE=qemux86-64 bitbake -e  ...
-runqemu - ERROR - IMAGE_LINK_NAME wasn't set to find corresponding .qemuboot.conf file
-runqemu - INFO - Cleaning up
-runqemu - INFO - Host uptime: 22932.91
+==> Now qemu boots completely
 ```
 
 build/tmp/deploy/images/qemux86-64/core-image-minimal-qemux86-64.rootfs-20251004142959.qemuboot.conf
@@ -88,6 +97,3 @@ build/tmp/deploy/images/qemux86-64/core-image-minimal-qemux86-64.rootfs-20251004
 
 
 
-## SLIR
-
-https://wiki.qemu.org/Documentation/Networking
