@@ -23,7 +23,8 @@
 			"extensions": [
 				"yocto-project.yocto-bitbake",
 				"mads-hartmann.bash-ide-vscode",
-				"ms-python.python"
+				"ms-python.python",
+				"ms-vscode.cpptools-extension-pack"
 			]
 		}
 	}

@@ -1,0 +1,21 @@
+{
+    // See: https://www.youtube.com/watch?v=PY4godidHx4 18:07
+    "configurations": [
+        {
+            "name": "Yocto Poky",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "__linux__",
+                "__x84_64__",
+                "_GUN_SOURCE"
+            ],
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17"
+        }
+    ],
+    "version": 4
+}
