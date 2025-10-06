@@ -7,6 +7,8 @@
 * https://wiki.qemu.org/Documentation/Networking (SLIRP)
 
 
+## Qemu binary
+
 ```bash
 source sources/poky/oe-init-build-env build
 
@@ -83,6 +85,8 @@ runqemu - INFO - Running /workspaces/yocto_playground/yocto5_0-devcontainer/buil
 ==> Now qemu hangs, it should be started with 'nographics'
 ```
 
+## Qemu starting
+
 ```bash
 source sources/poky/oe-init-build-env build
 
@@ -91,9 +95,10 @@ runqemu slirp nographic
 ==> Now qemu boots completely
 ```
 
-build/tmp/deploy/images/qemux86-64/core-image-minimal-qemux86-64.rootfs-20251004142959.qemuboot.conf
+## ssh into qemu
 
-* https://learn.arm.com/learning-paths/embedded-and-microcontrollers/yocto_qemu/yocto_build/
+```bash
+ssh qemu
+```
 
-
-
+Not that this command depends on `~/.ssh/config` which originates from `.devcontainer/ssh_config`

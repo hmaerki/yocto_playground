@@ -6,7 +6,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Launch AAA",
+            "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/tmp/work/qemux86_64-poky-linux/core-image-minimal/1.0/rootfs/usr/bin/hellosandbox",
@@ -16,6 +16,7 @@
             // "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
+            "preLaunchTask": "Start gdbserver in qemu for hellosandbox",
             "MIMode": "gdb",
             "miDebuggerServerAddress": "localhost:2323",
             "miDebuggerPath": "${workspaceFolder}/build/tmp/work/x86_64-linux/gdb-cross-x86_64/14.2/build-x86_64-poky-linux/gdb/gdb",

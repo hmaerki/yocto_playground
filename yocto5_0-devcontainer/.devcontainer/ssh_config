@@ -1,0 +1,8 @@
+# This file will be located at /home/vscode/.ssh
+Host qemu
+    Hostname localhost
+    User root
+    Port 2222
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    LogLevel ERROR

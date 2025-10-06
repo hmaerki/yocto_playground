@@ -52,3 +52,6 @@ RUN apt-get clean && \
 # USER yoctouser
 # WORKDIR /home/yoctouser
 # CMD /bin/bash
+
+COPY ssh_config /home/vscode/.ssh/config
+RUN chown -R 1000:1000 /home/vscode/.ssh
