@@ -25,6 +25,8 @@ Seems to work fine
 
 ### qemu
 
+[README_qemu.md](README_qemu.md)
+
 The image may be started in qemu.
 
 SLIP is used and therefor no root rights are required.
@@ -38,6 +40,10 @@ Build C code and remote debugging.
 ### devtool
 
 Show how to use it.
+
+### hellosandbox
+
+[README_hellosandbox.md](README_hellosandbox.md)
 
 ## Features intentially NOT supported
 
