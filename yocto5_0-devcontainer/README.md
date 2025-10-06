@@ -17,7 +17,37 @@ Downsides
 * https://github.com/crops/yocto-dockerfiles
 * https://github.com/crops/poky-container
 
-## KAS
+## Features
+
+### yocto-bitbake
+
+Seems to work fine
+
+### qemu
+
+The image may be started in qemu.
+
+SLIP is used and therefor no root rights are required.
+
+ssh connection (without password, prompts) to qemu.
+
+## Features to be tested
+
+Build C code and remote debugging.
+
+### devtool
+
+Show how to use it.
+
+## Features intentially NOT supported
+
+### Toaster
+
+...
+
+### KAS
+
+KAS is NOT used in this setup
 
 * https://kas.readthedocs.io/en/latest
 
