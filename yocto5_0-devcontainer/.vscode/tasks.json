@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start gdbserver in qemu for hellosandbox",
+            "type": "shell",
+            "command": "${workspaceFolder}/run_41_10_ssh.sh gdbserver localhost:23 /usr/bin/hellosandbox",
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": [
+                    {
+                        "regexp": ".",
+                        "file": 1,
+                        "location": 2,
+                        "message": 3
+                    }
+                ],
+                // This tells VS Code when the task has successfully started gdbserver
+                // The regex will stop matching when gdbserver is listening (or your custom script exits)
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": ".*",
+                    "endsPattern": "Listening on port 1234"
+                }
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+}

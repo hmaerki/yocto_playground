@@ -11,6 +11,11 @@ SRC_URI = "file://hellosandbox.c"
 
 S = "${WORKDIR}"
 
+DEBUG_BUILD = "1"
+INHIBIT_PACKAGE_STRIP = "1"
+# CFLAGS += "-O0 -ggdb"
+# CFLAGS += "-O0 -g"
+
 do_compile() {
         ${CC} ${CFLAGS} ${LDFLAGS} -o hellosandbox hellosandbox.c
 }
