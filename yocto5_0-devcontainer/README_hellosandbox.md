@@ -55,7 +55,17 @@ We have to map this directory containing `hellosandbox.c`:
 
     `set substitute-path /usr/src/debug/hellosandbox/1.0/ sources/meta-sandbox/recipe-custom/files`
 
-### Run GDB session
+or in `launch.json`:
+
+```json
+"sourceFileMap": {
+    "/usr/src/debug/hellosandbox/1.0/": "${workspaceFolder}/sources/meta-sandbox/recipe-custom/files"
+}
+```
+
+### Run GDB from the command line
+
+Note that qemu forwards port 23 (telnet) to 2323. As the telnet port is not used, we use it for debugging.
 
 qemu:
 ```bash
@@ -72,3 +82,12 @@ build/tmp/work/x86_64-linux/gdb-cross-x86_64/14.2/build-x86_64-poky-linux/gdb/gd
 
 break func_sandbox
 ```
+
+### Run GDB from VSCode
+
+Steps to start debugging
+ * terminal: `run_40_qemu.sh`. Login with `root`
+   * qemu: `gdbserver localhost:23 /usr/bin/hellosandbox`
+ * In VSCode: Run and Debug `(gdb) hellosandbox`
+
+   Now gdb break into the first line of main() and you should the the source.

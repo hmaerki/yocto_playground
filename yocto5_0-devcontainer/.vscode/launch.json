@@ -6,7 +6,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Launch",
+            "name": "(gdb) hellosandbox",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/tmp/work/qemux86_64-poky-linux/core-image-minimal/1.0/rootfs/usr/bin/hellosandbox",
@@ -16,10 +16,10 @@
             // "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
-            "preLaunchTask": "Start gdbserver in qemu for hellosandbox",
+            // "preLaunchTask": "Start gdbserver in qemu for hellosandbox",
             "MIMode": "gdb",
             "miDebuggerServerAddress": "localhost:2323",
-            "miDebuggerPath": "${workspaceFolder}/build/tmp/work/x86_64-linux/gdb-cross-x86_64/14.2/build-x86_64-poky-linux/gdb/gdb",
+            "miDebuggerPath": "gdb",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -35,7 +35,7 @@
             // DOES NOT WORK:
             // https://stackoverflow.com/questions/79704243/launch-json-set-up-for-vscode-debugging-on-qemu-within-docker-container
             "useExtendedRemote": true,
-            "name": "Attach to QEMU (GDB Remote)",
+            "name": "Attach to QEMU (GDB Remote) - Does not work yet...",
             "type": "cppdbg",
             "request": "attach",
             "MIMode": "gdb",
