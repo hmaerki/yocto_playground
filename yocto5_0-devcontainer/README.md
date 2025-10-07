@@ -1,4 +1,4 @@
-# Yocto 5.0
+# Yocto 5.0 in devcontainer
 
 This installation uses
 
@@ -7,15 +7,44 @@ This installation uses
 
 Positives
  * Compiles nicely
- * As vscode runs in devcontainer, all vscode extensions, also vscode-yocto, run like a charm
+ * As vscode runs in devcontainer, all vscode extensions, also vscode-extension for bitbake and devtool run like a charm
 
 Downsides
  * Dockerfile is a combination from https://github.com/crops/yocto-dockerfiles/blob/master/dockerfiles/debian/debian-12/debian-12-base/Dockerfile and `mcr.microsoft.com/devcontainers/base:bookworm`.
 
-## Links
+## Big picture
 
-* https://github.com/crops/yocto-dockerfiles
-* https://github.com/crops/poky-container
+```mermaid
+sequenceDiagram
+    participant host as Host<br>with<br>VSCode GUI
+    participant devcontainer as Devcontainer<br>with<br>VSCode Server Components
+    participant qemu
+    participant gdbserver as gdbserver<br>running hellosandbox.c
+    participant git
+
+    host-->>+git: git pull/push
+
+    host->>devcontainer: vscode open Devcontainer
+    activate devcontainer
+    devcontainer-->>+git: git pull/push
+    devcontainer->>devcontainer: bitbake
+    devcontainer->>qemu: boot and run
+    activate qemu
+    devcontainer-->>qemu: ssh / scp
+    qemu->>gdbserver: gdbserver hellosandbox
+    activate gdbserver
+    devcontainer->>gdbserver: gdb hellosandbox
+    activate gdbserver
+    gdbserver-->>devcontainer: exit
+    deactivate gdbserver
+    gdbserver-->qemu: exit
+    deactivate gdbserver
+    qemu-->>devcontainer: <ctrl-a> x
+    deactivate qemu
+    devcontainer-->>host: disconnect
+    deactivate devcontainer
+```
+
 
 ## Features
 
@@ -33,32 +62,37 @@ SLIP is used and therefor no root rights are required.
 
 ssh connection (without password, prompts) to qemu.
 
-## Features to be tested
-
-Build C code and remote debugging.
 
 ### devtool
 
-Show how to use it.
+Seems to work.
 
-### hellosandbox
+### hellosandbox.c
+
+There is a custom layer and a hellosandbox.c application.
 
 [README_hellosandbox.md](README_hellosandbox.md)
 
+### remote debugging of hellosandbox.c
+
+Remote debugging tested from the command line and from vscode debugger.
+
+Spoiler: The setup is quite tricky as many path have to be provied.
+
 ## Features intentially NOT supported
 
-### Toaster
+* Toaster
+* KAS https://kas.readthedocs.io/en/latest
 
-...
 
-### KAS
+## Implementation of [.devcontainer/Dockerfile](.devcontainer/Dockerfile)
 
-KAS is NOT used in this setup
+This dockerfile is based on
+* https://github.com/crops/yocto-dockerfiles/blob/master/dockerfiles/debian/debian-12/debian-12-base/Dockerfile
 
-* https://kas.readthedocs.io/en/latest
+But instead of using `debian-12` as base it used `mcr.microsoft.com/devcontainers/base:bookworm`
 
-Install kas-4.8.2
+Links
 
-```bash
-python3 -m pip install kas --break-system-packages
-```
+* https://github.com/crops/yocto-dockerfiles
+* https://github.com/crops/poky-container
