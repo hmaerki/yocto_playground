@@ -33,7 +33,8 @@ RUN apt-get clean && \
         xz-utils \
         zstd \
         gcc-multilib \
-        g++-multilib
+        g++-multilib \
+        gdb
 
     # esac && \
     # cp -af /etc/skel/ /etc/vncskel/ && \

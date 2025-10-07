@@ -50,37 +50,37 @@ sequenceDiagram
 
 ### yocto-bitbake
 
-Seems to work fine
+* Seems to work fine
 
 ### qemu
 
-[README_qemu.md](README_qemu.md)
+* The image may be started in qemu.
 
-The image may be started in qemu.
+Details see [README_qemu.md](README_qemu.md)
 
-SLIP is used and therefor no root rights are required.
+### ssh into qemu
 
-ssh connection (without password, prompts) to qemu.
+* SLIP is used and therefor no root rights are required.
+* ssh connection (without password/prompts) to qemu.
 
+Details see: [README_ssh.md](README_ssh.md)
 
 ### devtool
 
 Seems to work.
 
-### hellosandbox.c
+### hellosandbox.c and remote debugging
 
-There is a custom layer and a hellosandbox.c application.
+* There is a custom layer and a hellosandbox.c application.
+* Remote debugging tested from the command line and from vscode debugger.
+  * Spoiler: The setup is quite tricky as many path have to be provied.
 
-[README_hellosandbox.md](README_hellosandbox.md)
+Details see: [README_hellosandbox.md](README_hellosandbox.md)
 
-### remote debugging of hellosandbox.c
-
-Remote debugging tested from the command line and from vscode debugger.
-
-Spoiler: The setup is quite tricky as many path have to be provied.
 
 ## Features intentially NOT supported
 
+* qmu - graphical interface
 * Toaster
 * KAS https://kas.readthedocs.io/en/latest
 
