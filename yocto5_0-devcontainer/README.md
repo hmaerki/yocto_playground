@@ -12,6 +12,22 @@ Positives
 Downsides
  * Dockerfile is a combination from https://github.com/crops/yocto-dockerfiles/blob/master/dockerfiles/debian/debian-12/debian-12-base/Dockerfile and `mcr.microsoft.com/devcontainers/base:bookworm`.
 
+## Requirements
+
+* Debian/Ubuntu/WSL
+* Docker
+* 70GBytes of disk space
+* 32GBytes RAM
+
+Time required to build the image
+
+* 8h on Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+* 1.5h oon Intel(R) Xeon(R) E-2146G CPU @ 3.50GHz
+* Data
+  * 60G build
+  * 5.2G downloads
+  * 90M sources
+
 ## Big picture
 
 ```mermaid
@@ -44,7 +60,6 @@ sequenceDiagram
     devcontainer-->>host: disconnect
     deactivate devcontainer
 ```
-
 
 ## Features
 
