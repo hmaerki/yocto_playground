@@ -82,7 +82,14 @@ Details see: [README_ssh.md](README_ssh.md)
 
 ### devtool
 
-Seems to work.
+Devtool is integrated in VSCode on the left toolbar.
+
+Excellent tutorial - You can practice all steps in this devcontainer!
+[Youtube](https://youtu.be/tuGyfSdMmrc?si=LGdeF6P0yZSt1yGS)
+[PDF](https://pretalx.com/media/yocto-project-summit-2024-12/submissions/F9SU73/resources/_KusPVjl.pdf)
+[Web](https://rootcommit.com/2025/devtool-hands-on-video/)
+
+
 
 ### hellosandbox.c and remote debugging
 

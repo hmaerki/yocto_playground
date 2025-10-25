@@ -21,5 +21,6 @@
         "${workspaceFolder}/sources/poky/bitbake/lib",
         "${workspaceFolder}/sources/poky/meta/lib"
     ],
-    "bitbake.sdkImage": "core-image-minimal"
+    "bitbake.sdkImage": "core-image-minimal",
+    "bitbake.sshTarget": "root@qemu"
 }
