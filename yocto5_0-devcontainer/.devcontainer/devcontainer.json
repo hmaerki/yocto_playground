@@ -8,7 +8,6 @@
 		// Path is relative to the devcontainer.json file.
 		"dockerfile": "Dockerfile"
 	},
-
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -20,6 +19,15 @@
 	"containerUser": "vscode",
 	"customizations": {
 		"vscode": {
+			"settings": {
+				"files.exclude": {
+					"build/cache": true,
+					"build/downloads": true,
+					"build/sstate-cache": true,
+					"build/tmp/": true,
+					"downloads/": true
+				}
+			},
 			"extensions": [
 				"yocto-project.yocto-bitbake",
 				"mads-hartmann.bash-ide-vscode",
