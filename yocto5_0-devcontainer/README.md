@@ -22,7 +22,8 @@ Downsides
 Time required to build the image
 
 * 8h on Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
-* 1.5h oon Intel(R) Xeon(R) E-2146G CPU @ 3.50GHz
+* 1.5h on Intel(R) Xeon(R) E-2146G CPU @ 3.50GHz
+* 76min on github codespace 16-core, 64GB RAM
 * Data
   * 60G build
   * 5.2G downloads
