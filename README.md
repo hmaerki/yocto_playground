@@ -31,4 +31,4 @@ Details see [yocto5_0/README.md](yocto5_0/README.md)
 
 * Directory [yocto5_0-devcontainer](yocto5_0-devcontainer)
 
-Details see [yocto5_0-devcontainer/README.md](yocto5_0-devcontainer/README.md)
+Details see [README.md](README.md)
